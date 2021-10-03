@@ -1,0 +1,22 @@
+possum <- read.csv("D:/kuliah/paket komputasi/possum.csv")
+possum 
+
+library(ggplot2)
+library(plotly)
+x<-ggplot(data = possum)+geom_bar(mapping = aes (possum$'age',fill=as.factor(possum$head_l)),
+position = "dodge")+xlab("age")+ylab("head_l")
+
+ggplotly(x)
+
+**Scatter Plot Dengan Kategori Berwarna**
+library(plotly)
+fig <- plot_ly(data = possum,                   
+               x = ~age,            
+               y = ~head_l,              
+               color = ~possum)              
+fig <- fig %>% layout(title = 'Possum Plot',    
+         xaxis = list(title = 'Age',  
+                      zeroline = TRUE),
+         yaxis = list(title = 'head_l'))
+fig
+
